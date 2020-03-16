@@ -98,7 +98,7 @@ public class EstoqueLimpeza implements Estoque<ProdutoLimpeza> {
 		return true;
 	}
 
-	@Override
+	@Override  
 	public int quantidadeProdutosEmEstoque() {
 		return produtosL.size();
 	}
