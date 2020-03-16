@@ -3,6 +3,8 @@ package br.com.estrelas.estoque;
 import java.io.IOException;
 import java.util.Scanner;
 
+import java.util.List;
+
 public class MenuProdutoLimpeza {
 
 	public static Scanner input = new Scanner(System.in);
@@ -78,6 +80,7 @@ public class MenuProdutoLimpeza {
 				break;
 
 			case 3:
+
 				System.out.println(" Digite o código de barras para remover o produto: ");
 				long codigoDeBarras = input.nextLong();
 				estoqueLimpeza.removeProduto(codigoDeBarras);
@@ -85,7 +88,15 @@ public class MenuProdutoLimpeza {
 				break;
 
 			case 4:
-				estoqueLimpeza.listaProdutos();
+				 List<ProdutoLimpeza> produtos = estoqueLimpeza.listaProdutos();
+				 
+				 if(produtos.size() > 0) {
+					 for(ProdutoLimpeza prod : produtos) {
+						 System.out.println(prod.toString());
+					 }
+				 } else {
+					System.out.println(" Estoque vazio. "); 
+				 }
 
 				break;
 
@@ -97,16 +108,19 @@ public class MenuProdutoLimpeza {
 				System.out.println(" Digite o código de barras do produto: ");
 				long codigoDeBarrasProdUnit = input.nextLong();
 
-				estoqueLimpeza.alteraPrecoProduto(porcentagemProdUnit, true, codigoDeBarrasProdUnit);
-
+				estoqueLimpeza.alteraPrecoProduto(porcentagemProdUnit, true, codigoDeBarrasProdUnit);				// 
 				break;
 
 			case 6:
-
 				System.out.println(" Digite o código de barras para consultar o produto: ");
 				long codigoDeBarrasConsulta = input.nextLong();
-				estoqueLimpeza.consultaProduto(codigoDeBarrasConsulta);
-
+				
+				ProdutoLimpeza prod = estoqueLimpeza.consultaProduto(codigoDeBarrasConsulta);
+				if(prod == null) {
+					System.out.println(" produto não encontrado");
+				} else {
+					System.out.println(prod.toString());
+				}
 				break;
 
 			case 7:
@@ -120,23 +134,21 @@ public class MenuProdutoLimpeza {
 
 			case 8:
 				
-				estoqueLimpeza.quantidadeProdutosEmEstoque();
+				int qtdEstoque = estoqueLimpeza.quantidadeProdutosEmEstoque();
+				System.out.println(" A quantidade de produtos em estoque é igual a: " + qtdEstoque);
 				break;
 
 			case 9:
 
 				break;
 
-			case 10:
-
-				break;
-
+				
 			default:
 				System.out.println("Opção inválida.");
 				break;
 			}
 
-		} while (opcaoProdLimp == 0);
+		} while (opcaoProdLimp != 9);
 
 	}
 

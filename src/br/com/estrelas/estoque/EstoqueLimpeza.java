@@ -1,7 +1,5 @@
 package br.com.estrelas.estoque;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -86,8 +84,8 @@ public class EstoqueLimpeza implements Estoque<ProdutoLimpeza> {
 
 	@Override
 	public boolean gravaListaProdutos() throws IOException {
-
-		FileWriter writer = new FileWriter("C:\\repo\\zup-estrelas-desafio-estoque\\ListaDeProdutos.txt");
+		// //mudar o caminho para a sua máquina caro avaliador c:
+		FileWriter writer = new FileWriter("C:\\Users\\jenif\\Documents\\saida.txt");
 		PrintWriter gravarArquivo = new PrintWriter(writer);
 
 		for (ProdutoLimpeza produto : produtosL) {
@@ -96,18 +94,7 @@ public class EstoqueLimpeza implements Estoque<ProdutoLimpeza> {
 
 		writer.close();
 
-		FileReader fileReader = new FileReader("C:\\repo\\zup-estrelas-desafio-estoque\\ListaDeProdutos.txt");
-		BufferedReader reader = new BufferedReader(fileReader);
-
-		String linha = reader.readLine();
-
-		while (linha != null) {
-			System.out.printf("%s\n", linha);
-			linha = reader.readLine();
-		}
-
-		fileReader.close();
-
+		
 		return true;
 	}
 

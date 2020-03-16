@@ -86,7 +86,7 @@ public class EstoqueAlimenticio implements Estoque<ProdutoAlimenticio> {
 
 	@Override
 	public boolean gravaListaProdutos() throws IOException {
-
+		//mudar para diretório da sua máquina caro avaliador....
 		FileWriter writer = new FileWriter("C:\\Users\\jenif\\Documents\\saida.txt");
 		PrintWriter gravarArquivo = new PrintWriter(writer);
 		for (ProdutoAlimenticio produto : produtosA) {
@@ -94,17 +94,7 @@ public class EstoqueAlimenticio implements Estoque<ProdutoAlimenticio> {
 		}
 
 		writer.close();
-//		FileReader fileReader = new FileReader("C:\\repo\\zup-estrelas-desafio-estoque\\ListaDeProdutos.txt");
-//		BufferedReader reader = new BufferedReader(fileReader);
-//
-//		String linha = reader.readLine();
-//
-//		while (linha != null) {
-//			System.out.printf("%s\n", linha);
-//			linha = reader.readLine();
-//
-//		}
-//		fileReader.close();
+
 
 		return true;
 	}

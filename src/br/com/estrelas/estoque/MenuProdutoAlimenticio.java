@@ -83,11 +83,19 @@ public class MenuProdutoAlimenticio {
 
 				break;
 
-			case 4:
+			case 4: 
 				List<ProdutoAlimenticio> produtos = estoqueAlimenticio.listaProdutos();
-				for(ProdutoAlimenticio prod  : produtos) {
-					System.out.println(prod.toString());
+				
+				if(produtos.size() > 0) {
+
+					for(ProdutoAlimenticio prod : produtos ) {
+						System.out.println(prod.toString());
+					}
+				}else {
+
+					System.out.println("Estoque vazio.");
 				}
+				
 				break;
 
 			case 5:
@@ -124,7 +132,7 @@ public class MenuProdutoAlimenticio {
 				break;
 
 			case 8:
-				
+
 				int qtdEstoque = estoqueAlimenticio.quantidadeProdutosEmEstoque();
 				System.out.println("A quantidade de produtos em estoque é igual a: " + qtdEstoque);
 				break;
@@ -139,7 +147,7 @@ public class MenuProdutoAlimenticio {
 				System.out.println("Opção inválida.");
 				break;
 			}
-			// legal o que falta agora? n salva nada no arquivo 
+ 
 		} while (opcaoProdAlim != 9);
 
 	}
