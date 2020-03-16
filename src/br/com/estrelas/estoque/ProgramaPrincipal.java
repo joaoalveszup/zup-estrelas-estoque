@@ -17,19 +17,23 @@ public class ProgramaPrincipal {
 			System.out.println(" Digite ALIMENTICIO para as operações relacionadas a produtos alimentícios ");
 			System.out.println(" Digite LIMPEZA para as operações relacionadas a produtos de limpeza ");
 			System.out.println(" SAIR para cancelar as operações ");
-			//vc vai trabalhar nesse aqui agora ok?
-			opcao = input.next();
-
-			switch (opcao) {
-
-			case "ALIMENTICIO":
-				MenuProdutoAlimenticio.menuAlimentacao();
-
-			case "LIMPEZA":
-				MenuProdutoLimpeza.menuLimpeza();
-				break;
-			}
 			
-		} while (opcao == "SAIR");
+			opcao = input.next();
+			
+			
+
+			if(opcao.toLowerCase().equals("alimenticio")) {
+				MenuProdutoAlimenticio.menuAlimentacao();
+				
+			}else if(opcao.toLowerCase().equals("limpeza")){
+				
+				MenuProdutoLimpeza.menuLimpeza();
+			}else if(opcao.toLowerCase().equals("sair")) {
+				System.out.println("até logo !");
+			}
+
+			
+			
+		} while (!opcao.toLowerCase().equals("sair"));
 	}
 }

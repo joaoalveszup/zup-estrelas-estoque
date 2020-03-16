@@ -1,6 +1,7 @@
 package br.com.estrelas.estoque;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class MenuProdutoAlimenticio {
@@ -16,8 +17,10 @@ public class MenuProdutoAlimenticio {
 		float precoVenda = input.nextFloat();
 
 		System.out.println(" Digite o nome do produto: ");
+		
 		String nomeProduto = input.next();
-
+		
+		
 		System.out.println(" Digite o código de barras: ");
 		long codigoDeBarrasProduto = input.nextInt();
 
@@ -52,10 +55,9 @@ public class MenuProdutoAlimenticio {
 			System.out.println("\n Para guardar um novo produto no estoque de produtos, digite 7");
 			System.out.println("\n Para saber a quantidade de produtos em estoque, digite 8");
 			System.out.println("\n Para retornar ao menu anterior, digite 9");
-			System.out.println("\n Para sair digite 0");
 
 			opcaoProdAlim = input.nextInt();
-
+			input.nextLine();
 			switch (opcaoProdAlim) {
 
 			case 1:
@@ -67,7 +69,9 @@ public class MenuProdutoAlimenticio {
 			case 2:
 
 				System.out.println(" Digite uma porcentagem para alterar o preço de todos os produtos: ");
-				float porcentagem = input.nextFloat();
+				Scanner newInput = new Scanner(System.in);
+				String result = newInput.next();
+				Float porcentagem = Float.parseFloat(result);
 				estoqueAlimenticio.alteraPrecoProdutos(porcentagem, true);
 
 				break;
@@ -80,8 +84,10 @@ public class MenuProdutoAlimenticio {
 				break;
 
 			case 4:
-				estoqueAlimenticio.listaProdutos();
-
+				List<ProdutoAlimenticio> produtos = estoqueAlimenticio.listaProdutos();
+				for(ProdutoAlimenticio prod  : produtos) {
+					System.out.println(prod.toString());
+				}
 				break;
 
 			case 5:
@@ -100,8 +106,12 @@ public class MenuProdutoAlimenticio {
 
 				System.out.println(" Digite o código de barras para consultar o produto: ");
 				long codigoDeBarrasConsulta = input.nextLong();
-				estoqueAlimenticio.consultaProduto(codigoDeBarrasConsulta);
-
+				ProdutoAlimenticio prod = estoqueAlimenticio.consultaProduto(codigoDeBarrasConsulta);
+				if(prod == null) {
+					System.out.println("produto não encontrado");
+				}else {
+					System.out.println(prod.toString());
+				}
 				break;
 
 			case 7:
@@ -115,23 +125,22 @@ public class MenuProdutoAlimenticio {
 
 			case 8:
 				
-				estoqueAlimenticio.quantidadeProdutosEmEstoque();
+				int qtdEstoque = estoqueAlimenticio.quantidadeProdutosEmEstoque();
+				System.out.println("A quantidade de produtos em estoque é igual a: " + qtdEstoque);
 				break;
 
 			case 9:
 
 				break;
 
-			case 10:
 
-				break;
 
 			default:
 				System.out.println("Opção inválida.");
 				break;
 			}
-
-		} while (opcaoProdAlim == 0);
+			// legal o que falta agora? n salva nada no arquivo 
+		} while (opcaoProdAlim != 9);
 
 	}
 
