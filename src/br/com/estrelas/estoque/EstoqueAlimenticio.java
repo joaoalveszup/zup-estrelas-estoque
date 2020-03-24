@@ -1,5 +1,6 @@
 package br.com.estrelas.estoque;
 
+//XXX: Não se esqueça de remover os imports não utilizados (Ctrl + Shift + o)
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -87,7 +88,10 @@ public class EstoqueAlimenticio implements Estoque<ProdutoAlimenticio> {
 	@Override
 	public boolean gravaListaProdutos() throws IOException {
 		//mudar para diretório da sua máquina caro avaliador....
-		FileWriter writer = new FileWriter("C:\\Users\\jenif\\Documents\\saida.txt");
+		// REVIEW: HAHAHAH eu ri muito disso, mudei cara aluna :), quando tiver 
+		// algum comentário desse tipo utilize a chave FIXME para chamar atenção pra ele.
+		// XXX: O único ponto aqui é que o nome do arquivo deveria ser produtosAlimenticios.txt
+		FileWriter writer = new FileWriter("saida.txt");
 		PrintWriter gravarArquivo = new PrintWriter(writer);
 		for (ProdutoAlimenticio produto : produtosA) {
 			gravarArquivo.print(produto);

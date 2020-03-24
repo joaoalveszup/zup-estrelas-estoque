@@ -4,6 +4,8 @@ import java.io.IOException;
 
 public class TesteUnitario {
 
+		// PARABÉNS, ESSA CLASSE DE TESTES É UM DIFERENCIAL
+		// TESTAR A NOSSA LÓGICA É SUPER IMPORTANTE
 	   public static void main(String[] args) throws IOException {
 
 		// criei meus produtos e meu estoque alimenticio

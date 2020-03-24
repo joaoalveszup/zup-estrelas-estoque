@@ -59,6 +59,7 @@ public class MenuProdutoLimpeza {
 			System.out.println("\n Para guardar um novo produto no catálogo de produtos, digite 7");
 			System.out.println("\n Para saber a quantidade de produtos em estoque, digite 8");
 			System.out.println("\n Para retornar ao menu anterior, digite 9");
+			//XXX: Essa opção não é válida nunca (não há case pra ela)
 			System.out.println("\n Para sair digite 0");
 
 			opcaoProdLimp = teclado.nextInt();

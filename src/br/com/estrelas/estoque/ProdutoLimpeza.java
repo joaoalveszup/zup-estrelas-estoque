@@ -12,6 +12,7 @@ public class ProdutoLimpeza extends Produto {
 	private String parteDaCasa;
 	
 	public ProdutoLimpeza(float precoCusto, float precoVenda, String nome, long codigoDeBarras, String dataValidade, String aroma, String parteDaCasa) {
+		// XXX: Aqui está sendo utilizado o preço de venda duas vezes.
 		super(precoVenda, precoVenda, parteDaCasa, codigoDeBarras, dataValidade);
 		this.aroma = aroma;
 		this.parteDaCasa = parteDaCasa;

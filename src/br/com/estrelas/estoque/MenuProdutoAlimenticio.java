@@ -52,6 +52,7 @@ public class MenuProdutoAlimenticio {
 			System.out.println("\n Para obter uma lista de todos os produtos, digite 4 ");
 			System.out.println("\n Para alterar o preço de um produto específico, digite 5 ");
 			System.out.println("\n Para consultar produto através do código de barras, digite 6");
+			//XXX: Corrigir o texto para "guardar um arquivo com os produtos."
 			System.out.println("\n Para guardar um novo produto no estoque de produtos, digite 7");
 			System.out.println("\n Para saber a quantidade de produtos em estoque, digite 8");
 			System.out.println("\n Para retornar ao menu anterior, digite 9");

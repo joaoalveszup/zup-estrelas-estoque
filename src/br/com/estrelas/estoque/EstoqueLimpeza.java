@@ -84,8 +84,11 @@ public class EstoqueLimpeza implements Estoque<ProdutoLimpeza> {
 
 	@Override
 	public boolean gravaListaProdutos() throws IOException {
-		// //mudar o caminho para a sua máquina caro avaliador c:
-		FileWriter writer = new FileWriter("C:\\Users\\jenif\\Documents\\saida.txt");
+		// FIXME: mudar o caminho para a sua máquina caro avaliador c:
+		// REVIEW: HAHAHAH eu ri muito disso, mudei cara aluna :), quando tiver 
+		// algum comentário desse tipo utilize a chave FIXME para chamar atenção pra ele.
+		// XXX: O único ponto aqui é que o nome do arquivo deveria ser produtosLimpeza.txt
+		FileWriter writer = new FileWriter("saida.txt");
 		PrintWriter gravarArquivo = new PrintWriter(writer);
 
 		for (ProdutoLimpeza produto : produtosL) {
